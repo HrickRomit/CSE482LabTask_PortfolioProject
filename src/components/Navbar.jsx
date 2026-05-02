@@ -1,3 +1,5 @@
+import { useTheme } from "../ThemeContext";
+
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -7,6 +9,7 @@ const navItems = [
 ];
 
 function Navbar({ currentPage, onNavigate }) {
+  const { isDark, toggleTheme } = useTheme();
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -29,6 +32,15 @@ function Navbar({ currentPage, onNavigate }) {
         >
           <span className="navbar-toggler-icon" />
         </button>
+        <button
+          type="button"
+          className="btn btn-outline-secondary ms-2"
+          onClick={toggleTheme}
+          aria-label="Toggle color scheme"
+          title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDark ? "☀️" : "🌙"}
+        </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="navbar-nav gap-2">
@@ -36,11 +48,10 @@ function Navbar({ currentPage, onNavigate }) {
               <button
                 key={item.id}
                 type="button"
-                className={`btn ${
-                  currentPage === item.id
+                className={`btn ${currentPage === item.id
                     ? "btn-primary"
                     : "btn-outline-primary"
-                }`}
+                  }`}
                 onClick={() => onNavigate(item.id)}
               >
                 {item.label}
