@@ -5,7 +5,7 @@ function Home() {
     <main className="content">
       <div className="row align-items-center g-4">
         <div className="col-12 col-lg-6 fade-up">
-          <h1 className="mb-3">My name is Hrick Romit</h1>
+          <h1 className="mb-3">My name is Hrick Romit </h1>
           <h2 className="mb-3">A true vibe coder</h2>
           <h3 className="mb-3">CSE student | Aspiring Software Engineer</h3>
           <p className="fs-5 mb-0">
